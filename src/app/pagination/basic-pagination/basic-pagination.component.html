@@ -1,0 +1,19 @@
+<div *ngIf=" length > 0">
+    <span style="margin-left: 20%" class="responsive-view"> {{ 1 + (pageOffset * (pageIndex - 1)) }}
+      - {{ (pageOffset * pageIndex) <= length ? pageOffset * pageIndex : length }}
+      of {{ length }}</span>
+    <span style="margin-left: 20%" class="responsive-view margin-for-mobile">
+      <button [disabled]="pageIndex <= 1" (click)="getFirstPage()">
+        <i class="material-icons">Page1</i>
+      </button>
+      <button [disabled]="pageIndex <= 1" (click)="getPreviousPage()">
+        <i class="material-icons">precedent</i>
+      </button>
+      <button [disabled]="this.pageOffset * this.pageIndex > length" (click)="getNextPage()">
+        <i class="material-icons">suivant</i>
+      </button>
+      <button matTooltip="Info about the action" [disabled]="this.pageOffset * this.pageIndex > length" (click)="getLastPage()">
+        <i class="material-icons">pageFinale</i>
+      </button>
+    </span>
+  </div> 

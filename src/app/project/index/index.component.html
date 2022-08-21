@@ -1,0 +1,38 @@
+<section>
+
+    <div class="d-flex justify-content-between">
+      <h4>List project</h4>
+      <a routerLink="/project/create" class="btn btn-success">Create New Project</a>
+    </div>
+
+    <br>
+    
+    <table class="table ">
+      <tr>
+        <th>ID</th>
+        <th>titre</th>
+        <th>categorie</th>
+        <th>creationDate</th>
+        <th width="220px">Action</th>
+      </tr>
+      <tr *ngFor="let project of projects">
+        <td>{{ project.id }}</td>
+        <td>{{ project.titre }}</td>
+        <td> {{ project.categorie }}</td>
+        <td>{{ project.created_at }}</td>
+        <!-- <td>{{ project.pagination }}</td> -->
+        <td>
+          <a href="#" [routerLink]="['/project/', 'edit', project.id  ]" class="btn btn-primary">Edit</a>
+          <button type="button" (click)="deleteProject(project.id)" class="btn btn-danger">Delete</button>
+        </td>
+      </tr>
+    </table>
+ </section>
+
+
+
+
+
+<!-- <basic-pagination [length]="total" [pageOffset]="pageOffset" [pageIndex]="pageIndex"></basic-pagination> 
+
+ -->
